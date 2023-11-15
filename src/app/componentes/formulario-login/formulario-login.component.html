@@ -1,0 +1,25 @@
+<div class="card card-block w-75 p-3 mx-auto mt-3">
+
+    <h4 class="card-title">Introducir Usuario</h4>
+  
+    <form [formGroup]="libroForm" (ngSubmit)="onSubmit()">
+  
+      <div class="form-group mt-2">
+  
+        <input type="text" class="form-control" placeholder="Introduzca nombre usuario"
+  
+        formControlName="usuario"
+  
+        [ngClass]="{ 'is-invalid': libroForm.get('usuario')!.invalid && libroForm.get('usuario')?.touched }">
+  
+        <div *ngIf="libroForm.get('usuario')!.invalid && libroForm.get('usuario')!.touched" class="invalid-feedback">
+          Usuario es requerido
+        </div>
+  
+      </div>
+      
+      <button class="btn btn-primary mt-2" type="submit" [disabled]="!libroForm.valid">Login</button>
+    
+    </form>
+  
+  </div>

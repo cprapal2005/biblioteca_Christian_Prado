@@ -1,0 +1,11 @@
+<formulario-login (nombreUsuario)="nombreUsuario=($event)"></formulario-login>
+<div class="card card-block w-75 p-3 mx-auto mt-3" *ngIf="nombreUsuario.length>0">
+    <h4 class="card-title">Bienvenido {{nombreUsuario}}</h4>
+    <div>
+        <filtro-busqueda></filtro-busqueda>
+        <listado-libros></listado-libros>
+    </div>
+</div>
+
+
+
