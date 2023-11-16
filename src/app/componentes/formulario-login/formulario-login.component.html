@@ -13,7 +13,7 @@
         [ngClass]="{ 'is-invalid': libroForm.get('usuario')!.invalid && libroForm.get('usuario')?.touched }">
   
         <div *ngIf="libroForm.get('usuario')!.invalid && libroForm.get('usuario')!.touched" class="invalid-feedback">
-          Usuario es requerido
+          Usuario minimo 6 caracteres
         </div>
   
       </div>

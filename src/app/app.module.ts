@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ServicioLibrosService } from './servicios/servicio-libros.service';
-import { ServicioBusquedaService } from './servicios/servicio-busqueda.service';
 
 import { AppComponent } from './app.component';
 import { BibliotecaComponent } from './componentes/biblioteca/biblioteca.component';
@@ -25,8 +24,7 @@ import { ListadoLibrosComponent } from './componentes/listado-libros/listado-lib
     ReactiveFormsModule
   ],
   providers: [
-    ServicioLibrosService,
-    ServicioBusquedaService
+    ServicioLibrosService
   ],
   bootstrap: [AppComponent]
 })

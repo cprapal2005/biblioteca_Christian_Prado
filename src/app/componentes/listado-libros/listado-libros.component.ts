@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ServicioBusquedaService } from 'src/app/servicios/servicio-busqueda.service';
+import { Component } from '@angular/core';
 import { ServicioLibrosService } from 'src/app/servicios/servicio-libros.service';
 
 @Component({
@@ -9,22 +7,16 @@ import { ServicioLibrosService } from 'src/app/servicios/servicio-libros.service
   styles: [
   ]
 })
-export class ListadoLibrosComponent implements OnInit {
+export class ListadoLibrosComponent {
 
-  private observableBusqueda!: Observable<string>;
-  private textoBusqueda: string = "";
-
-  public constructor(private servicioLibro: ServicioLibrosService, private servicioBusqueda: ServicioBusquedaService) {
-
-    
+  public constructor(private servicioLibro: ServicioLibrosService) {
 
   }
 
-  ngOnInit() {
-    this.observableBusqueda.subscribe(value => this.textoBusqueda = value);
-    
+  getLibros() {
+
+    this.servicioLibro.getLibros().subscribe(librosFiltrados => {return librosFiltrados});
+
   }
-
-
 
 }
