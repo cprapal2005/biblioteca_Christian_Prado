@@ -1,1 +1,10 @@
-<div *ngFor="getLibros"></div>
+<div *ngFor="let libro of librosFiltrados$ | async">
+    <div class="card card-block">
+    <ul>
+        <li>Titulo: {{libro.titulo}}</li>
+        <li>Autor: {{libro.autor}}</li>
+        <li>Editorial: {{libro.editorial}}</li>
+        <li>Años Publicado: {{libro.fechaPublicacion | anosTotal}} </li>
+    </ul>
+    </div>
+</div>

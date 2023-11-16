@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Libro } from 'src/app/interfaces/libro';
 import { ServicioLibrosService } from 'src/app/servicios/servicio-libros.service';
 
 @Component({
@@ -7,16 +9,13 @@ import { ServicioLibrosService } from 'src/app/servicios/servicio-libros.service
   styles: [
   ]
 })
-export class ListadoLibrosComponent {
+export class ListadoLibrosComponent implements OnInit {
 
-  public constructor(private servicioLibro: ServicioLibrosService) {
+  librosFiltrados$!: Observable<Libro[]>;
 
+  constructor(private servicioLibro: ServicioLibrosService) {}
+
+  ngOnInit() {
+    this.librosFiltrados$ = this.servicioLibro.getLibros();
   }
-
-  getLibros() {
-
-    this.servicioLibro.getLibros().subscribe(librosFiltrados => {return librosFiltrados});
-
-  }
-
 }

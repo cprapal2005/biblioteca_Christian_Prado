@@ -7,7 +7,7 @@ import { Libro } from '../interfaces/libro';
 })
 export class ServicioLibrosService {
 
-  private subjectFiltrado!: Subject<Libro[]>;
+  private subjectFiltrado: Subject<Libro[]> = new Subject<Libro[]>();
   private libros: Libro[];
 
   constructor() {
@@ -43,11 +43,14 @@ export class ServicioLibrosService {
 
   setFiltro(filtro: string) {
 
-    let librosFiltrados = this.libros.filter(
-      libro => libro.titulo.includes(filtro));
-    
-    this.subjectFiltrado.next(librosFiltrados);
-
+    if (filtro.length === 0) {
+      this.subjectFiltrado.next([]);
+    } else {
+      let librosFiltrados = this.libros.filter(
+        libro => libro.titulo.toLowerCase().includes(filtro.toLowerCase())
+      );
+      this.subjectFiltrado.next(librosFiltrados);
+    }
   }
 
 }

@@ -9,6 +9,7 @@ import { BibliotecaComponent } from './componentes/biblioteca/biblioteca.compone
 import { FormularioLoginComponent } from './componentes/formulario-login/formulario-login.component';
 import { FiltroBusquedaComponent } from './componentes/filtro-busqueda/filtro-busqueda.component';
 import { ListadoLibrosComponent } from './componentes/listado-libros/listado-libros.component';
+import { AñosTotalPipe } from './pipe/años-total.pipe';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ListadoLibrosComponent } from './componentes/listado-libros/listado-lib
     BibliotecaComponent,
     FormularioLoginComponent,
     FiltroBusquedaComponent,
-    ListadoLibrosComponent
+    ListadoLibrosComponent,
+    AñosTotalPipe
   ],
   imports: [
     BrowserModule,
