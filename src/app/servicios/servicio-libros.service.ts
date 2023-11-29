@@ -49,7 +49,7 @@ export class ServicioLibrosService {
       let librosFiltrados = this.libros.filter(
         libro => libro.titulo.toLowerCase().includes(filtro.toLowerCase())
       );
-      this.subjectFiltrado.next(librosFiltrados);
+      this.subjectFiltrado.next([...librosFiltrados]);
     }
   }
 
